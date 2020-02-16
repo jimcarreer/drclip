@@ -1,0 +1,5 @@
+requests~=2.22
+click~=7.0
+pytest # test
+pytest-cov # test
+responses # test
