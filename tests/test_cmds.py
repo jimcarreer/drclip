@@ -217,8 +217,8 @@ class TestCommands:
         (['rmd', '-i', TEST_TAG, 'unknown-tag', TEST_TAG], {REPO_ENV: TEST_REPO}),
         (['rmd', '--ignore_unknown', TEST_TAG, 'unknown-tag', TEST_TAG], {REPO_ENV: TEST_REPO})
     ])
-    def test_list_digest_ignores(self, tctx: TestContext, bargs: list, args: list, benvs: dict, envs: dict):
-        """Tests digests sub command ignores 404s"""
+    def test_rmd_ignores(self, tctx: TestContext, bargs: list, args: list, benvs: dict, envs: dict):
+        """Tests rmd sub command ignores 404s"""
         with responses.RequestsMock() as rm:
             self.mock_hc(rm)
             self.set_envs(tctx.patcher, benvs, envs)
