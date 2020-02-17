@@ -9,7 +9,7 @@ Installation
 ------------
 I haven't put this in pypi yet, so you can just pull and install with pip:
 
-.. code-block:: bash
+.. code-block::
 
     $ git pull https://github.com/jimcarreer/drclip.git
     $ cd drclip
@@ -24,28 +24,46 @@ Usage
 -----
 The tool makes use of the fantastic Click library with a sub command structure:
 
-.. code-block:: bash
+.. code-block::
 
     $ drclip --help
+
     Usage: drclip [OPTIONS] COMMAND [ARGS]...
+
+      Runs commands against docker registries
 
     Options:
       -c, --config FILENAME
-      -r, --registry TEXT    The registry to query
+      -r, --registry TEXT    The registry to query  [required]
       --help                 Show this message and exit.
 
     Commands:
-      repos  Lists the repositories in a registry via the _catalog API
-      tags   Lists the tags for a given repository using the /tags/list API
+      digests   Get the digest(s) for given tag(s)
+      manifest  List the manifests for a given repository and a given tag
+      repos     Lists the repositories in a registry via the _catalog API
+      rmd       Removes a manifest(s) for given digest(s)
+      tags      Lists the tags for a given repository using the /tags/list API
 
-
+Tab completion
+**************
 After installation you can enable tab completion with bash via:
 
-.. code-block:: bash
+.. code-block::
 
     $ eval "$(_DRCLIP_COMPLETE=source drclip)"
 
+Right now only the :code:`-r` / :code:`--registry` option supports tab completion.
 
+Environs
+********
+There are a couple of environmental variables you can define to avoid tedious argument entry:
+
+* :code:`DRCLIP_REG` - defaults the :code:`-r` / :code:`--registry` argument on commands
+* :code:`DRCLIP_REPO` - defaults the :code:`-o` / :code:`--repository` argument on commands
+
+
+Authentication
+**************
 Credentials for the registries are retrieved (by default) by using the :code:`~/.docker/config.json`.  Currently only
 the built in credential store system provided by docker is supported for retrieving credentials.
 
@@ -53,5 +71,3 @@ the built in credential store system provided by docker is supported for retriev
    :target: https://travis-ci.org/jimcarreer/drclip
 .. |cover-status| image:: https://codecov.io/gh/jimcarreer/drclip/branch/master/graph/badge.svg
    :target: https://codecov.io/gh/jimcarreer/drclip
-.. role:: bash(code)
-   :language: bash

@@ -52,7 +52,7 @@ class RegistryV2API:
         :raises ValueError: if method is not one of 'get', 'post', 'put', 'patch', or 'head'
         :return: the request response object fulfilling the request
         """
-        if method not in ['get', 'post', 'put', 'patch', 'head']:
+        if method not in ['get', 'post', 'put', 'patch', 'head', 'delete']:
             raise ValueError(f'Bad HTTP method {method}')
         method = getattr(self._session, method)
         kwargs.update(auth=self._credentials.get_login(self._registry))
@@ -69,6 +69,29 @@ class RegistryV2API:
         res = self.raw_request('get', self.url(api), params=params)
         res.raise_for_status()
         return res.json()
+
+    def head(self, api: str = '', params: Union[dict, None] = None) -> dict:
+        """
+        Call a HEAD API against the registry
+
+        :param api: (optional) the api to call, defaults to '' which just calls the /v2/ endpoint for version checking
+        :param params: (optional) query parameters, defaults to None (no parameters)
+        :return: response headers
+        """
+        res = self.raw_request('head', self.url(api), params=params)
+        res.raise_for_status()
+        return res.headers
+
+    def delete(self, api: str, params: Union[dict, None] = None):
+        """
+        Call a DELETE API against the registry
+
+        :param api: the api to call
+        :param params: (optional) query parameters, defaults to None (no parameters)
+        :return: response headers
+        """
+        res = self.raw_request('delete', self.url(api), params=params)
+        res.raise_for_status()
 
 
 class Paginated:

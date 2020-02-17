@@ -8,10 +8,7 @@ import responses
 
 from drclip.creds import CredentialsNotFound, CredentialsException
 
-try:
-    from unittest import mock as std_mock
-except ImportError:
-    import mock as std_mock
+from unittest import mock as std_mock
 
 
 def mock_pages(mock: responses.RequestsMock, base_url: str, api: str, page_size: int, entry_name: str, entries: list):
@@ -61,7 +58,7 @@ class MockCredentialsStrange:
 class MockCredentials:
     """Mocks the DockerCredential class"""
 
-    REPO = 'test.com'
+    REG = 'test.com'
     AUTHS = {'test.com': ('user', 'pass')}
 
     def __init__(self, *args, **kwargs):
