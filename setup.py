@@ -34,5 +34,8 @@ setup(
         'console_scripts': [
             'drclip=drclip:drclip'
         ]
-    }
+    },
+    classifiers=[
+        'Environment :: Console'
+    ]
 )
