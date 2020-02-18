@@ -27,6 +27,7 @@ setup(
     packages=find_packages(),
     author='Jim Carreer',
     author_email='jim.carreer+drclip@gmail.com',
+    url='https://github.com/jimcarreer/drclip',
     description='A click based tool for working with remote docker registries',
     long_description=long_description,
     long_description_content_type='text/x-rst',
@@ -42,6 +43,9 @@ setup(
         ]
     },
     classifiers=[
-        'Environment :: Console'
+        'Environment :: Console',
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8'
     ]
 )

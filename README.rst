@@ -1,5 +1,6 @@
-Docker Registry CLI with Python |build-status| |cover-status|
-=============================================================
+Docker Registry CLI with Python
+===============================
+|build-status| |cover-status| |pyver-status| |pypiv-status|
 
 This project provides a click based CLI interface against the version 2 docker registry API.  I wrote this because
 Google yielded nothing, and I run a private registry for personal projects that needs maintenance that is extremely
@@ -12,8 +13,6 @@ We're now available in pypi! Install simply with:
 .. code-block::
 
     $ pip install drclip
-
-Supported Python Versions: 3.6, 3.7, 3.8
 
 Usage
 -----
@@ -66,3 +65,7 @@ the built in credential store system provided by docker is supported for retriev
    :target: https://travis-ci.org/jimcarreer/drclip
 .. |cover-status| image:: https://codecov.io/gh/jimcarreer/drclip/branch/master/graph/badge.svg
    :target: https://codecov.io/gh/jimcarreer/drclip
+.. |pyver-status| image:: https://img.shields.io/pypi/pyversions/drclip
+   :target: https://pypi.org/project/drclip/
+.. |pypiv-status| image:: https://badge.fury.io/py/drclip.svg?dummy
+   :target: https://pypi.org/project/drclip/
