@@ -7,18 +7,13 @@ cumbersome with curl / bash scripts.
 
 Installation
 ------------
-I haven't put this in pypi yet, so you can just pull and install with pip:
+We're now available in pypi! Install simply with:
 
 .. code-block::
 
-    $ git pull https://github.com/jimcarreer/drclip.git
-    $ cd drclip
-    $ pip install . -U
+    $ pip install drclip
 
-Supported Python Versions
-  * 3.6
-  * 3.7
-  * 3.8
+Supported Python Versions: 3.6, 3.7, 3.8
 
 Usage
 -----

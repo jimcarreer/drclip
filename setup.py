@@ -17,6 +17,9 @@ with open('requirements.txt', 'r') as fh:
         else:
             install_requires.append(line)
 
+with open('README.rst', 'r') as fh:
+    long_description = fh.read()
+
 
 setup(
     name='drclip',
@@ -25,6 +28,9 @@ setup(
     author='Jim Carreer',
     author_email='jim.carreer+drclip@gmail.com',
     description='A click based tool for working with remote docker registries',
+    long_description=long_description,
+    long_description_content_type='text/x-rst',
+    license='ISC License',
     test_suite='tests',
     install_requires=install_requires,
     tests_require=tests_require,
